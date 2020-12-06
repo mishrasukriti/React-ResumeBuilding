@@ -1,0 +1,155 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume</title>
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://unpkg.com/react-bootstrap@next/dist/react-bootstrap.min.js" crossorigin></script>
+    
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@1,300&display=swap" rel="stylesheet"> 
+
+
+    
+</head>
+<body class="html">
+    <div id="root" class="pt-5"> 
+
+    </div>
+
+    <script type="text/babel">
+
+        const rootElement = document.getElementById("root");
+
+        const Htag = (props)=>{
+            return <div className="bg-color mt-5">
+                    <h2 className="p-2" > {props.children} </h2>
+            </div>
+        }
+
+        const SubHeadingTag = (props)=>{
+            return <div >
+                    <h3 className="p-2" > {props.children}
+                        <span className="float-right"> {props.rightBar}</span>
+                     </h3>
+            </div>
+        }
+
+        const Content = (props)=>{
+            return <div>
+                <p className="p-3 content-style"> {props.children} </p>
+            </div>
+        }
+
+        function DescriptionList(props) {
+            const list = props.list;
+            const listItems = list.map((item) =>
+                <li className="content-style">{item}</li>
+            );
+            return (
+                <ul>{listItems}</ul>
+            );
+        }
+
+        const DescriptionTag = (props)=>{
+            console.log("inside DescriptionTag");
+            return <div className="pl-5 pt-2 ">
+                    <h5> Description </h5>
+                    <p className="pl-2 content-style"> {props.description}</p>
+                    <h5> Responsibilities </h5>
+                    <DescriptionList list={props.list} />
+            </div>
+        }
+
+        const HeaderTag = (props)=>{
+            console.log("inside HeaderTag");
+            return <div className="mb-4">
+                <span className="float-right">
+                        <b> Address:</b>{props.addressLine1}
+                        <br/>
+                        <b> {props.addressLine2} </b>
+                        <br/>
+                        <b> {props.addressLine3} </b>
+                        <br/>
+                        <b> Phone:  </b>{props.phoneNumber}
+                        <br/>
+                        <b> Email: </b>{props.email}
+                        <br/>
+                    </span>
+                    <h1 class = "display-1"> {props.children} </h1>
+                    
+                    
+                    
+                    
+                </div>
+            
+        }
+
+
+        const employmentDescriptionList1 = ["Instructing students to build Apps and Games using Javascript and block based coding based on student’s levels,", "Build projects incorporating essentials of coding fundamentals so that students can learn these by practicing these projects,", "Review projects completed and provide feedback to students/parents regarding Coding skills and improvements."];
+        const employmentDescription1 = "Worked as Coding Instructor at Whitehat Jr (Global teaching platform for building Apps and Games).";
+        
+        const employmentDescription2 = "Worked as Admin, Accounts section, Ordinance Parachute Factory under Defence Ministry of India.";
+        const employmentDescriptionList2 = ["Auditing account statements and bills related to Ordinance Parachute Factory."];
+        
+        const programmingProfilesList = ["GitHub: https://github.com/mishrasukriti", "Leetcode: https://leetcode.com/sukritippl/", "InterviewBit: https://www.interviewbit.com/profile/sukriti-mishra"];
+        const technicalSkillsList = ["Coding Languages: HTML5/CSS (PROFICIENT), JavaScript (PROFICIENT), NodeJS- Express (PROFICIENT), React JS (PROFICIENT), Java (PROFICEINT)." , "Database expertise: MongoDB (PROFICIENT), MySQL (PROFICIENT)" , "Technologies: Github (PROFICIENT), Netlify (PROFICIENT), Heroku (PROFICIENT)" , "Areas of Interest: Full stack development (PROFICIENT), Data Structure and Algorithms (PROFICIENT)." , "Working Platforms: Mac OS, Unix/Linux, Windows 7, and Windows 8"];
+
+        const extraCurricularsList = ["Participated in AD-WAR ,Treasure-Hunt in technical festival Techmart 2012 held at U.I.E.T, C.S.J.M.U, Kanpur." , "Participated in Fashionova in cultural event Spandan 2012 held at U.I.E.T, C.S.J.M.U, Kanpur." , "Hobby – Singing, Cooking, Travelling"];
+
+        const EducationDetail = (props) => {
+            return <div className=" pt-3 ">
+                <h4 className="text-color pl-2"> {props.time}
+                    <span className="pl-5 heading"> 
+                        {props.degree}
+                        <h5 className="text-color pl-5 ml-5">{props.collegeName}</h5>
+                        <h5 className="text-color pl-5 ml-5">{props.grade}</h5>
+                    </span>
+                </h4>
+            </div>
+        }
+        
+
+        const element = <div className="p-5">
+                        <HeaderTag name="Sukriti Mishra" email="sukritippl@gmail.com" phoneNumber="+916345557462" addressLine1="H.No: 491, C/O Shailendra" addressLine2 = "Mishra, G.T. Road," addressLine3="Saraimeera, Kannauj, UP, India">Sukriti Mishra</HeaderTag>
+                        <Htag id="first"> Professional Summary </Htag>
+                        <Content > Profound knowledge of traits and technologies used in Full-Stack Software Development. Looking forward to opportunities in Software Development and Full stack development role to solve complex business problems using innovative solutions.</Content>
+                        
+                        <Htag> Employment History</Htag>
+                        <SubHeadingTag rightBar="Aug 2019 to July 2020" > Coding Instructor, </SubHeadingTag>
+                        <h3 className="text-color pl-2">Whitehat Jr India Pvt Ltd</h3>
+                        <DescriptionTag list={employmentDescriptionList1} description={employmentDescription1} />
+                        <SubHeadingTag rightBar="Aug 2018 to April 2019" > Admin, Accounts section, </SubHeadingTag>
+                        <h3 className="text-color pl-2">OPF, Defence Ministry of India</h3>
+                        <DescriptionTag list={employmentDescriptionList2} description={employmentDescription2} />
+                        
+                        <Htag > Trainings</Htag>
+                        <SubHeadingTag rightBar="July 2020 – Dec 2020" > Full Stack development ZEN Bootcamp </SubHeadingTag>
+                        <h3 className="text-color pl-2">Guvi Geek Private Network, India</h3>
+                        <p className="content-style pl-2 "> Currently training at Full Stack Development ZEN Bootcamp program that is owned by Guvi Geek Private Network, India .      Bootcamp involved projects and solving complex problems incorporating usage of Frontend technologies such as HTML, CSS, Javascript, Bootstrap, React, MERN stack development and backend technologies such as API framework (REST API’s), Async JS (Promise), Typescript, React, Data structure and Algorithms, Computer networks etc.</p>
+
+                        <Htag > Education</Htag>
+                        <EducationDetail time="2011-2015" degree="Bachelor of Technology, Computer Science and Engineering," collegeName="U.I.E.T. CSJMU, Kanpur, UP (India)." grade="C.G.P.A - 6.79"> </EducationDetail>
+                        <EducationDetail time="2008 – 2010" degree="Intermediate/+2, U.P. Board," collegeName="B.N.S.D. Shiksha Niketan Inter College, Kanpur, UP (India)." grade= "Percentage - 76.40%"  ></EducationDetail>
+                        <EducationDetail time="2008" degree="Matriculation, U.P. Board," collegeName="B.N.S.D. Shiksha Niketan Girls High School, Kanpur, UP (India)." grade="Percentage - 78.00%" ></EducationDetail>
+
+                        <Htag > Programming Profiles</Htag>
+                        <DescriptionList list={programmingProfilesList} />
+
+                        <Htag >Technical Skills</Htag>
+                        <DescriptionList list={technicalSkillsList} />
+
+                        <Htag >Extra Curriculars</Htag>
+                        <DescriptionList list={extraCurricularsList} />
+        </div>
+
+        ReactDOM.render(element, rootElement);
+
+    </script>
+
+</body>
+</html>
